@@ -3,7 +3,27 @@
 public class White : MonoBehaviour
 {
     #region 練習區域 - 在此區域內練習
+
+    [Header("子彈")]
+    public GameObject Bullet;
+    [Header("子彈發射位置")]
+    public Transform Point;
+    [Header("音效區域")]
+    public AudioSource Aud;
+    public AudioClip SoundShoot;
+
+    private void sss()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            print("射擊");
+            Instantiate(Bullet);
+            Aud.PlayOneShot(SoundShoot);
+            
+        }
+    }
     
+
     #endregion
 
     #region KID 區域 - 不要偷看 @3@
@@ -20,6 +40,8 @@ public class White : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        sss();
+        
     }
 
     /// <summary>
@@ -30,4 +52,5 @@ public class White : MonoBehaviour
         rig.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * speed);
     }
     #endregion
+
 }

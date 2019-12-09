@@ -12,10 +12,12 @@ public class Bullet : MonoBehaviour
     {
         Move();
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision);
         Destroy(gameObject, 0.03f);
+        
     }
 
     /// <summary>
